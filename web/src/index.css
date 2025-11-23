@@ -18,6 +18,10 @@
 --color-zinc-50: #fafafa; /* Brightest highlights */
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 @layer base {
   body {
     @apply bg-zinc-950 text-zinc-100 antialiased;

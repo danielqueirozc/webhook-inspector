@@ -7,7 +7,6 @@ interface IconButtonProps
 	// vai extender todas a propriedades que um botao receberia normalmente
 	icon: ReactNode
 }
-
 const iconButton = tv({
 	base: 'flex items-center justify-center rounded-lg hover:bg-zinc-700 transition-colors duration-150', // estilos que vai ser compartilhhados em todas as variants
 	variants: {

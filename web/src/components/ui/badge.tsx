@@ -13,6 +13,6 @@ export function Badge({ className, ...props }: BadgeProps) {
 			)} /// unir os className
 			{...props}
 		/>
-			// nao precisei colocar children porque o children ja é uma prop
+		// nao precisei colocar children porque o children ja é uma prop
 	)
 }

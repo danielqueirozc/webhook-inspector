@@ -9,9 +9,12 @@ import {
  import { fastifySwagger } from '@fastify/swagger'
  import { fastifyCors } from '@fastify/cors'
  import ScalarApiReference from '@scalar/fastify-api-reference'
-import { ListWebhooks } from './routes/get-webhooks'
+import { listWebhooks } from './routes/get-webhooks'
+import { getWebhook } from './routes/get-webhook'
 import { env } from './env'
-
+import { deleteWebhook } from './routes/delete-webhook'
+import { captureWebhook } from './routes/capture-webhook'
+import { generateHandler } from './routes/generate-handler'
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
@@ -36,7 +39,11 @@ app.register(ScalarApiReference, {
   routePrefix: '/docs',
 })
 
-app.register(ListWebhooks)
+app.register(listWebhooks)
+app.register(getWebhook)
+app.register(deleteWebhook)
+app.register(captureWebhook)
+app.register(generateHandler)
 
 app.setValidatorCompiler(validatorCompiler)
 app.setSerializerCompiler(serializerCompiler)
