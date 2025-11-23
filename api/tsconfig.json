@@ -12,9 +12,17 @@
 		"skipLibCheck": true,
 		"moduleResolution": "node16",
     "outDir": "./dist",
+    "rootDir": "./src",
+    "baseUrl": ".",
 
 		"paths": {
 			"@/*": ["./src/*"]
 		}
-	}
+	},
+	"include": [
+		"src"
+	],
+	"exclude": [
+		"drizzle.config.ts"
+	]
 }
