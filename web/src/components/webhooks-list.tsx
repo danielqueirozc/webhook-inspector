@@ -17,7 +17,7 @@ export function WebhooksList() {
 			queryKey: ['webhooks'], // como se fosse uma identificao unica de cada query
 			queryFn: async ({ pageParam }) => {// funcao que vai executar para buscar os dados
 
-				const url = new URL('http://localhost:3333/api/webhooks')
+				const url = new URL('https://webhook-inspector-d4n5.onrender.com/api/webhooks')
 				if (pageParam) {
 					url.searchParams.set('cursor', pageParam) // adiciona o cursor na url se existir pageParam
 				}
@@ -25,6 +25,7 @@ export function WebhooksList() {
 				const response = await fetch(url)
 				// console.log('response', response)
 				const data = await response.json()
+				console.log('data', data)
 
 				return WebHookListSchema.parse(data) // valida os dados com o schema
 			},
@@ -79,7 +80,7 @@ export function WebhooksList() {
 	}
 
 	async function handleGenerateHandler() {
-		const response = await fetch('http://localhost:3333/api/generate', {
+		const response = await fetch('https://webhook-inspector-d4n5.onrender.com/api/generate', {
 			method: 'POST',
 			body: JSON.stringify({
 				webhooksIds: checkedWebhooksIds,
