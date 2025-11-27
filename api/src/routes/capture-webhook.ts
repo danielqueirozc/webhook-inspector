@@ -9,10 +9,10 @@ export const captureWebhook: FastifyPluginAsyncZod = async (app) => {
      { 
         schema: {
           summary: 'Capture incoming webhook requests',
-          tags: ['External;'], // criar ctegorias
+          tags: ['External'], // criar categorias
           hide: true, // nao aparecer na documentacao
           response: { // se sucesso
-            201: z.object({ id: z.uuidv7() }), // como se fosse um z.object() com todas as colunas do banco de dados
+            201: z.object({ id: z.uuidv7() }),
           }
         }
      },

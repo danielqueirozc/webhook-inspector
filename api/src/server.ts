@@ -8,7 +8,7 @@ import {
  } from 'fastify-type-provider-zod'
  import { fastifySwagger } from '@fastify/swagger'
  import { fastifyCors } from '@fastify/cors'
- // Remova o import do Scalar aqui
+ 
 import { listWebhooks } from './routes/get-webhooks'
 import { getWebhook } from './routes/get-webhook'
 import { env } from './env'
@@ -35,7 +35,7 @@ async function startServer() {
     transform: jsonSchemaTransform,
   })
 
-  // Carrega o Scalar dinamicamente
+  // Carrega o ScalarApiReference de forma dinâmica
   const { default: ScalarApiReference } = await import('@scalar/fastify-api-reference')
   
   app.register(ScalarApiReference, {

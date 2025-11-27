@@ -42,7 +42,7 @@ export const listWebhooks: FastifyPluginAsyncZod = async (app) => {
           createdAt: webhooks.createdAt,
         })
         .from(webhooks)
-        .where(cursor ? lt(webhooks.id, cursor) : undefined) // less than > menor que / os menos sao os webhooks mais atuais, os maiores sao os mais antigos
+        .where(cursor ? lt(webhooks.id, cursor) : undefined) // less than > menor que / os menoress sao os webhooks mais atuais, os maiores sao os mais antigos
         .orderBy(desc(webhooks.id))
         .limit(limit + 1) // para saber se tem uma outra pagina ou nao
         

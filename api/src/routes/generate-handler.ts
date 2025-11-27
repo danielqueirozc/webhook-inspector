@@ -31,6 +31,8 @@ export const generateHandler: FastifyPluginAsyncZod = async (app) => {
           .from(webhooks)
           .where(inArray(webhooks.id, webhooksIds)) // isso vai buscar todos os webhooks que tem o id dentro do array de webhooksIds 
 
+          // toda resposta do banco de dados é um array de objetos
+
           const webhooksBodies = result.map(webhook => webhook.body).join('\n\n') // junta todos os corpos dos webhooks em uma so string, separando por duas linhas
 
           // ai vercel          
